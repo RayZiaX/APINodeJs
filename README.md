@@ -7,7 +7,7 @@ petit serveur d'authentification fait avec nodejs et express
 # 3eme etape
 `npm start` pour lancer l'API express (contenu deja pré-fait)
 # experience
-Experience basé sur les *issets* donnés pour les tester, certain sont réussi d'autre non.
+Experience basé sur les *issets* donnés pour les tester.
 # 1er étape
 `npm install` pour installer tous les packer contenu dans le `package.json`
 # 2eme étape
