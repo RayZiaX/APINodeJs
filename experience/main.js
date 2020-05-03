@@ -1,19 +1,21 @@
-var express = require('express');
+const express = require('express');
+const bodyParser = require('body-parser');
 var app = express();
-const test = {version: "0.1.0", status:[0,1]}
-const users = [{id: 1, userName: 'grenier', password: '0123', firstName: 'lepuit', lastName: 'frank'},
-{id: 2, userName: 'garnier', password: 'Formation13@', firstName: 'lahoule', lastName: 'kilian'},
-{id: 3, userName: 'leGeux', password: 'visitor', firstName: 'ouille', lastName: 'jacque'},
-{id: 4, userName: 'ToufikSama', password: 'N@rut0', firstName: 'lahoule', lastName: 'jeanne'}
-];
+const cors = require('cors');
+const status = {version: "0.1.0", statut:[0,1]}
 
 
-app.get('/', function(req, res, {version,status}){
-    res.setHeader('Content-Type','application/json');
-    res.send(test);
+
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+app.use(cors());
+
+app.use('/',require('./form.js'));
+
+
+app.get('/status', function(req, res, {version,statut}){
+        res.setHeader('Content-Type','application/json');
+        res.send(status);
 });
-app.get('/users', function(req, res, {version,status}){
-    res.setHeader('Content-Type','application/json');
-    res.send(users);
-});
+
 app.listen(8080);
